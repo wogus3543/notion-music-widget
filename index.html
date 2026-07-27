@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <!-- 운영체제 다크모드 자동 지원 -->
+    <meta
+        name="color-scheme"
+        content="light dark">
+
+    <title>Notion Music Widget</title>
+
+    <!-- Font Awesome -->
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <!-- Pretendard -->
+    <link
+        rel="preconnect"
+        href="https://cdn.jsdelivr.net">
+
+    <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css">
+
+    <link
+        rel="stylesheet"
+        href="style.css">
+
+</head>
+
+<body>
+
+<div class="background"></div>
+
+<div class="player">
+
+    <!-- LP -->
+
+    <div class="album">
+
+        <div class="disc">
+
+            <img
+                id="albumImage"
+                src="assets/weekend.jpg"
+                alt="Album Cover">
+
+            <div class="disc-center"></div>
+
+        </div>
+
+    </div>
+
+    <!-- TEXT -->
+
+    <div class="info">
+
+        <div class="now-playing">
+
+            NOW PLAYING
+
+        </div>
+
+        <h1
+            class="title">
+
+        </h1>
+
+        <h2
+            class="artist">
+
+        </h2>
+
+        <!-- BUTTONS -->
+
+        <div class="controls">
+
+            <button
+                id="prev"
+                class="control">
+
+                <i class="fa-solid fa-backward-step"></i>
+
+            </button>
+
+            <button
+                id="play"
+                class="play">
+
+                <i class="fa-solid fa-play"></i>
+
+            </button>
+
+            <button
+                id="next"
+                class="control">
+
+                <i class="fa-solid fa-forward-step"></i>
+
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+
+</html>

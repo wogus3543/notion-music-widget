@@ -1,0 +1,990 @@
+/* ==========================================================
+   NOTION MUSIC WIDGET
+   STYLE.CSS
+   PART 1
+========================================================== */
+
+/* ==========================
+   RESET
+========================== */
+
+*,
+*::before,
+*::after{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    font-size:16px;
+}
+
+body{
+
+    width:100%;
+    min-height:100vh;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    overflow:hidden;
+
+    font-family:
+        "Pretendard",
+        sans-serif;
+
+    transition:
+        background .35s ease,
+        color .35s ease;
+
+}
+
+/* ==========================
+   COLOR SYSTEM
+========================== */
+
+:root{
+
+    --background:#f4f5f8;
+
+    --card:rgba(255,255,255,.62);
+
+    --card-border:
+        rgba(255,255,255,.45);
+
+    --shadow:
+        rgba(0,0,0,.14);
+
+    --title:#202124;
+
+    --artist:#80848d;
+
+    --button:#ffffff;
+
+    --button-hover:#eceef3;
+
+    --button-text:#303030;
+
+    --play:#1DB954;
+
+    --play-hover:#18a84b;
+
+}
+
+/* ==========================
+   DARK MODE
+========================== */
+
+@media (prefers-color-scheme:dark){
+
+:root{
+
+    --background:#111315;
+
+    --card:
+        rgba(30,30,33,.70);
+
+    --card-border:
+        rgba(255,255,255,.06);
+
+    --shadow:
+        rgba(0,0,0,.45);
+
+    --title:#f5f5f5;
+
+    --artist:#b4b6bb;
+
+    --button:#2b2b2f;
+
+    --button-hover:#37373c;
+
+    --button-text:#ffffff;
+
+    --play:#1DB954;
+
+    --play-hover:#1ac453;
+
+}
+
+}
+
+/* ==========================
+   BACKGROUND
+========================== */
+
+.background{
+
+    position:fixed;
+
+    inset:0;
+
+    z-index:-1;
+
+    background:
+
+    radial-gradient(
+
+        circle at top left,
+
+        rgba(29,185,84,.10),
+
+        transparent 38%
+
+    ),
+
+    radial-gradient(
+
+        circle at bottom right,
+
+        rgba(120,120,255,.08),
+
+        transparent 40%
+
+    ),
+
+    var(--background);
+
+    transition:
+        background .35s ease;
+
+}
+
+/* ==========================
+   PLAYER CARD
+========================== */
+
+.player{
+
+    width:470px;
+
+    height:190px;
+
+    padding:24px;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:30px;
+
+    border-radius:28px;
+
+    background:var(--card);
+
+    border:
+
+        1px solid
+        var(--card-border);
+
+    backdrop-filter:
+
+        blur(22px);
+
+    -webkit-backdrop-filter:
+
+        blur(22px);
+
+    box-shadow:
+
+        0 24px 60px
+        var(--shadow);
+
+    transition:
+
+        transform .35s ease,
+
+        box-shadow .35s ease,
+
+        background .35s ease;
+
+}
+
+/* ==========================
+   PLAYING EFFECT
+========================== */
+
+.player.playing{
+
+    transform:
+
+        translateY(-6px);
+
+}
+
+.player:hover{
+
+    transform:
+
+        translateY(-3px);
+
+}
+
+/* ==========================
+   LEFT AREA
+========================== */
+
+.album{
+
+    width:140px;
+
+    height:140px;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    flex-shrink:0;
+
+}
+
+/* ==========================
+   LP
+========================== */
+
+.disc{
+
+    position:relative;
+
+    width:132px;
+
+    height:132px;
+
+    border-radius:50%;
+
+    overflow:hidden;
+
+    box-shadow:
+
+        0 14px 34px
+        rgba(0,0,0,.20);
+
+    transition:
+
+        transform .35s ease,
+
+        box-shadow .35s ease;
+
+}
+
+.player:hover .disc{
+
+    transform:scale(1.03);
+
+}
+
+/* ==========================
+   ALBUM IMAGE
+========================== */
+
+#albumImage{
+
+    width:100%;
+
+    height:100%;
+
+    display:block;
+
+    object-fit:cover;
+
+    border-radius:50%;
+
+    transition:
+
+        opacity .30s ease;
+
+    will-change:
+
+        transform;
+
+}
+
+/* ==========================
+   LP GROOVE
+========================== */
+
+.disc::before{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    border-radius:50%;
+
+    pointer-events:none;
+
+    background:
+
+    repeating-radial-gradient(
+
+        circle,
+
+        rgba(255,255,255,.05) 0px,
+
+        rgba(255,255,255,.05) 2px,
+
+        transparent 2px,
+
+        transparent 8px
+
+    );
+
+}
+
+/* ==========================
+   OUTER RING
+========================== */
+
+.disc::after{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    border-radius:50%;
+
+    box-shadow:
+
+    inset 0 0 0 2px
+    rgba(255,255,255,.14);
+
+}
+
+/* ==========================
+   CENTER
+========================== */
+
+.disc-center{
+
+    position:absolute;
+
+    left:50%;
+
+    top:50%;
+
+    width:22px;
+
+    height:22px;
+
+    transform:
+
+        translate(-50%,-50%);
+
+    border-radius:50%;
+
+    background:#f5f5f5;
+
+    border:
+
+        6px solid #2f2f2f;
+
+    z-index:10;
+
+}
+
+/* ==========================
+   INFO
+========================== */
+
+.info{
+
+    flex:1;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    min-width:0;
+
+}
+
+/* ==========================
+   NOW PLAYING
+========================== */
+
+.now-playing{
+
+    font-size:10px;
+
+    font-weight:700;
+
+    letter-spacing:3px;
+
+    color:var(--artist);
+
+    margin-bottom:5px;
+
+    text-transform:uppercase;
+
+}
+
+/* ==========================
+   SONG TITLE
+========================== */
+
+.title{
+
+    color:var(--title);
+
+    font-size:30px;
+
+    font-weight:700;
+
+    line-height:1.2;
+
+    white-space:nowrap;
+
+    overflow:hidden;
+
+    text-overflow:ellipsis;
+
+    transition:
+        opacity .25s ease;
+
+}
+
+/* ==========================
+   ARTIST
+========================== */
+
+.artist{
+
+    margin-top:8px;
+
+    color:var(--artist);
+
+    font-size:17px;
+
+    font-weight:500;
+
+    white-space:nowrap;
+
+    overflow:hidden;
+
+    text-overflow:ellipsis;
+
+    transition:
+        opacity .25s ease;
+
+}
+
+/* ==========================
+   CONTROLS
+========================== */
+
+.controls{
+
+    margin-top:15px;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:25px;
+
+}
+
+/* ==========================
+   BUTTON RESET
+========================== */
+
+.controls button{
+
+    border:none;
+
+    outline:none;
+
+    cursor:pointer;
+
+    border-radius:50%;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    font-size:18px;
+
+    transition:
+
+        transform .22s ease,
+
+        background .25s ease,
+
+        color .25s ease,
+
+        box-shadow .25s ease;
+
+}
+
+/* ==========================
+   PREV / NEXT
+========================== */
+
+.control{
+
+    width:46px;
+
+    height:46px;
+
+    background:var(--button);
+
+    color:var(--button-text);
+
+    box-shadow:
+
+        0 8px 18px
+        rgba(0,0,0,.10);
+
+}
+
+.control:hover{
+
+    background:var(--button-hover);
+
+    transform:
+
+        translateY(-2px);
+
+}
+
+.control:active{
+
+    transform:
+
+        scale(.92);
+
+}
+
+/* ==========================
+   PLAY BUTTON
+========================== */
+
+.play{
+
+    width:60px;
+
+    height:60px;
+
+    background:var(--play);
+
+    color:white;
+
+    font-size:22px;
+
+    box-shadow:
+
+        0 12px 28px
+        rgba(29,185,84,.35);
+
+}
+
+.play:hover{
+
+    background:var(--play-hover);
+
+    transform:
+
+        translateY(-2px)
+        scale(1.04);
+
+}
+
+.play:active{
+
+    transform:
+
+        scale(.95);
+
+}
+
+/* ==========================
+   PLAYING STATE
+========================== */
+
+.player.playing{
+
+    box-shadow:
+
+        0 30px 70px
+        rgba(0,0,0,.20);
+
+}
+
+.player.playing .disc{
+
+    box-shadow:
+
+        0 18px 42px
+        rgba(0,0,0,.28);
+
+}
+
+/* ==========================
+   ICON
+========================== */
+
+.controls i{
+
+    pointer-events:none;
+
+}
+
+/* ==========================
+   FOCUS
+========================== */
+
+button:focus-visible{
+
+    outline:
+
+        2px solid var(--play);
+
+    outline-offset:3px;
+
+}
+
+/* ==========================
+   IMAGE FADE
+========================== */
+
+#albumImage{
+
+    opacity:1;
+
+}
+
+#albumImage.fade{
+
+    opacity:0;
+
+}
+
+/* ==========================
+   TITLE FADE
+========================== */
+
+.title.fade,
+
+.artist.fade{
+
+    opacity:0;
+
+}
+
+/* ==========================
+   SMALL TRANSITIONS
+========================== */
+
+.player,
+.disc,
+button,
+.title,
+.artist,
+#albumImage{
+
+    transition-timing-function:ease;
+
+}
+
+/* ==========================
+   RESPONSIVE
+========================== */
+
+@media (max-width:540px){
+
+.player{
+
+    width:94%;
+
+    height:auto;
+
+    padding:22px;
+
+    gap:22px;
+
+}
+
+.album{
+
+    width:110px;
+
+    height:110px;
+
+}
+
+.disc{
+
+    width:104px;
+
+    height:104px;
+
+}
+
+.disc-center{
+
+    width:18px;
+
+    height:18px;
+
+    border-width:5px;
+
+}
+
+.title{
+
+    font-size:24px;
+
+}
+
+.artist{
+
+    font-size:15px;
+
+}
+
+.controls{
+
+    margin-top:22px;
+
+    gap:14px;
+
+}
+
+.play{
+
+    width:54px;
+
+    height:54px;
+
+    font-size:20px;
+
+}
+
+.control{
+
+    width:42px;
+
+    height:42px;
+
+}
+
+}
+
+/* ==========================
+   CARD ENTRANCE
+========================== */
+
+@keyframes fadeIn{
+
+    from{
+
+        opacity:0;
+        transform:translateY(18px);
+
+    }
+
+    to{
+
+        opacity:1;
+        transform:translateY(0);
+
+    }
+
+}
+
+.player{
+
+    animation:fadeIn .6s ease;
+
+}
+
+/* ==========================
+   PLAYER ACTIVE
+========================== */
+
+.player.playing{
+
+    border-color:
+
+        rgba(29,185,84,.18);
+
+}
+
+/* ==========================
+   BUTTON DISABLED
+========================== */
+
+button:disabled{
+
+    opacity:.5;
+
+    cursor:not-allowed;
+
+}
+
+/* ==========================
+   IMAGE QUALITY
+========================== */
+
+img{
+
+    user-select:none;
+
+    -webkit-user-drag:none;
+
+    image-rendering:auto;
+
+}
+
+/* ==========================
+   SELECTION
+========================== */
+
+::selection{
+
+    background:rgba(29,185,84,.25);
+
+}
+
+/* ==========================
+   SMOOTH FONT
+========================== */
+
+body{
+
+    -webkit-font-smoothing:antialiased;
+
+    -moz-osx-font-smoothing:grayscale;
+
+    text-rendering:optimizeLegibility;
+
+}
+
+/* ==========================
+   NOTION EMBED
+========================== */
+
+html,
+body{
+
+    background:transparent;
+
+}
+
+iframe{
+
+    border:none;
+
+}
+
+/* ==========================
+   MOBILE
+========================== */
+
+@media (max-width:420px){
+
+.player{
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    align-items:center;
+
+    text-align:center;
+
+    width:95%;
+
+    height:auto;
+
+    padding:22px;
+
+}
+
+.info{
+
+    align-items:center;
+
+}
+
+.controls{
+
+    justify-content:center;
+
+}
+
+.title{
+
+    white-space:normal;
+
+}
+
+.artist{
+
+    white-space:normal;
+
+}
+
+}
+
+/* ==========================
+   REDUCED MOTION
+========================== */
+
+@media (prefers-reduced-motion:reduce){
+
+*{
+
+    animation:none !important;
+
+    transition:none !important;
+
+    scroll-behavior:auto !important;
+
+}
+
+}
+
+/* ==========================
+   SCROLLBAR
+========================== */
+
+::-webkit-scrollbar{
+
+    width:0;
+
+    height:0;
+
+}
+
+/* ==========================
+   FINAL
+========================== */
+
+.player,
+.disc,
+button,
+#albumImage{
+
+    backface-visibility:hidden;
+
+    transform-style:preserve-3d;
+
+}
+
+.player *{
+
+    -webkit-tap-highlight-color:transparent;
+
+}
