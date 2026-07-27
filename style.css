@@ -110,46 +110,6 @@ body{
 
 }
 
-/* ==========================
-   BACKGROUND
-========================== */
-
-.background{
-
-    position:fixed;
-
-    inset:0;
-
-    z-index:-1;
-
-    background:
-
-    radial-gradient(
-
-        circle at top left,
-
-        rgba(29,185,84,.10),
-
-        transparent 38%
-
-    ),
-
-    radial-gradient(
-
-        circle at bottom right,
-
-        rgba(120,120,255,.08),
-
-        transparent 40%
-
-    ),
-
-    var(--background);
-
-    transition:
-        background .35s ease;
-
-}
 
 /* ==========================
    PLAYER CARD
@@ -259,8 +219,7 @@ body{
 
     box-shadow:
 
-        0 14px 34px
-        rgba(0,0,0,.20);
+        0 12px 30px rgba(0,0,0,.10);
 
     transition:
 
