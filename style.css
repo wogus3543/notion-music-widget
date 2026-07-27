@@ -146,16 +146,9 @@ body{
 
         blur(22px);
 
-    box-shadow:
-
-        0 24px 60px
-        var(--shadow);
-
     transition:
 
         transform .35s ease,
-
-        box-shadow .35s ease,
 
         background .35s ease;
 
