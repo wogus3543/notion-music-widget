@@ -37,7 +37,7 @@ const songs = [
 
         artist: "Thornapple",
 
-        image: "assets/lovedive.jpg"
+        image: "assets/Thornapple_1st_album.jpg"
 
     },
 
@@ -47,7 +47,7 @@ const songs = [
 
         artist: "Thornapple",
 
-        image: "assets/ditto.jpg"
+        image: "assets/Thornapple_2nd_album.jpg"
 
     },
 
@@ -57,7 +57,7 @@ const songs = [
 
         artist: "Thornapple",
 
-        image: "assets/weekend.jpg"
+        image: "assets/Thornapple_1st_mini_album.jpg"
 
     },
   
@@ -67,7 +67,7 @@ const songs = [
 
         artist: "Thornapple",
 
-        image: "assets/weekend.jpg"
+        image: "assets/Thornapple_3rd_album.jpg"
 
     },
 
@@ -77,7 +77,7 @@ const songs = [
 
         artist: "Thornapple",
 
-        image: "assets/weekend.jpg"
+        image: "assets/Thornapple_2nd_mini_album.jpg"
 
     },
 
@@ -87,7 +87,7 @@ const songs = [
 
         artist: "Thornapple",
 
-        image: "assets/weekend.jpg"
+        image: "assets/Thornapple_3rd_mini_album.jpg"
 
     }
 
